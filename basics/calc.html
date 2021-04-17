@@ -20,6 +20,8 @@
     <button onclick="sub()" class="btn btn-secondary"> - </button>
 
 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
 
          function add(){
@@ -31,11 +33,12 @@
 
          }   
          function sub(){
-            var oper1 = document.getElementById('oper1').value;
-            var oper2 = document.getElementById('oper2').value;
-
-            var result = oper1 - oper2;
-            document.getElementById('result').innerText = result
+            // var oper1 = document.getElementById('oper1').value;
+            // var oper2 = document.getElementById('oper2').value;
+            // var result = oper1 - oper2;
+            // document.getElementById('result').innerText = result
+            $('#result').text($('#oper1').val() - $('#oper2').val())  
+            
 
          }   
 
