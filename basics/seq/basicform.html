@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Basic Form</title>
+</head>
+<body>
+    <!-- <form action="someurl" method="post"> -->
+        <input id="name" type="text"/>
+        <input id="salary" type="number"/>
+        <button onclick="addEmployee()">Add Employee</button>
+    <!-- </form> -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+
+        function addEmployee(){
+            $.post('http://localhost:3000/employees', {name: $('#name').val(), salary: $('#salary').val()})
+            .done((res)=> console.log(res));
+        }
+
+    </script>
+</body>
+</html>
