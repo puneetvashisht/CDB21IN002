@@ -1,0 +1,4 @@
+1. HTML, JQuery(JS), Bootstrap, JSON-Server -> Create a page for doing GET, POST, DELETE, PATCH operations on User
+Employee (Name, Id, Skills(Array), Project, SCM)
+2. ES6 features: Callbacks & Promises
+    Modules in ES6
