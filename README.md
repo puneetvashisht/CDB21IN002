@@ -19,3 +19,7 @@
     - NPM 
         Install Json-server for (Http GET, POST ...)
         Jquery $.get, $post ... to send/recieve from Json-server
+    - ES6
+        Contains some new language features:
+        Promises, Class syntax, Rest, Let, Interpolation.....
+        Transcompile ES6 to browser compatible ES5 
