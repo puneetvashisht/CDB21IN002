@@ -6,28 +6,14 @@
       "salary": 343443
     },
     {
-      "id": 2,
-      "name": "Priya",
-      "salary": 33443.34
+      "name": "",
+      "salary": "",
+      "id": 2
     },
     {
-      "name": "xyz",
-      "salary": "34343",
+      "name": "Tst",
+      "salary": "454545",
       "id": 3
-    },
-    {
-      "name": "xyz",
-      "salary": "34343",
-      "id": 4
-    },
-    {
-      "name": "pqrst",
-      "salary": "44444",
-      "id": 5
-    },
-    {
-      "salary": "99999",
-      "id": 6
     }
   ]
 }

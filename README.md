@@ -23,3 +23,18 @@
         Contains some new language features:
         Promises, Class syntax, Rest, Let, Interpolation.....
         Transcompile ES6 to browser compatible ES5 
+    - NPM packages run local
+        npm init
+        npm i <package_name>
+        npm run <script_name>
+    - Writing first program in React
+        - Globally Install create-react-app : npm i -g create-react-app
+        - Create a project : npx create-react-app <name-of-app>
+        - cd my-first-app
+        - npm start
+    - Create component in React
+        - function or class syntax
+        - render method that determines the look of feel
+        - other methods to handle user event
+        - props (passed into component), state (belongs to the component)
+        - props are read-only, state can changed but by using setState method

@@ -4,10 +4,17 @@
 //     return "success"
 // }
 
-function async(callback){
+var foo = function(){
+    console.log('foo')
+}
+
+foo();
+console.log(foo)
+
+function async(xyz){
     setTimeout(function(){
-        console.log(callback)
-        callback("success")
+        console.log(xyz)
+        xyz("success")
     },5000)
 }
 
@@ -16,8 +23,10 @@ console.log('start...')
 
 // var response = sync();
 // console.log(response)
-async(function(res){
+
+var response = function(res){
     console.log(res);
-})
+}
+async(response)
 
 console.log('end....');
