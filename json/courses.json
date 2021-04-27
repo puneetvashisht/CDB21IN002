@@ -1,0 +1,24 @@
+{
+  "courses": [
+    {
+      "title": "Test Course",
+      "summmary": "test summary server...",
+      "id": 2
+    },
+    {
+      "title": "Test Course",
+      "summmary": "test summary server...",
+      "id": 3
+    },
+    {
+      "title": "Test Course",
+      "summmary": "test summary server...",
+      "id": 4
+    },
+    {
+      "title": "Test Course",
+      "summmary": "test summary server...",
+      "id": 5
+    }
+  ]
+}
