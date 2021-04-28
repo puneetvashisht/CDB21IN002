@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import Card from './Card'
 
 import React, { Component } from 'react'
+import AddEmployee from './AddEmployee';
 
 export default class App extends Component {
 
@@ -29,15 +30,21 @@ export default class App extends Component {
 
   render() {
 
-    let courseList = this.state.courses.map((course)=>{
+    let courseList = this.state.courses.map((course,i)=>{
       return (
-        <Card caption= {course.title} desc={course.summmary} id={course.id}></Card>
+        <Card key={i} caption= {course.title} desc={course.summmary} id={course.id}></Card>
       )
     })
 
     return (
       <div className="container">
+        <div className="row">
+        
+        <AddEmployee/>
+        <hr></hr>
+      </div>
       <div className="row">
+
         {courseList}
       </div>
     </div>
