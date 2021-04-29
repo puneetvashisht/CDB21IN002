@@ -12,7 +12,7 @@ export default class Dropdown extends Component {
     }
 
     handleClick(){
-        console.log('click button', this.state.show)
+        console.log('clic button', this.state.show)
         this.setState({show: !this.state.show})
     }
 
