@@ -12,8 +12,8 @@ export default class AddEmployee extends Component {
         console.log('A name was submitted: ' + this.title.current.value);
         console.log('A name was submitted: ' + this.summary.current.value);
 
-        fetch('http://localhost:3004/courses', {
-            method: 'POST',
+        fetch('http://localhost:3004/courses/9', {
+            method: 'PUT',
             headers: {"Content-type": "application/json"},
             body: JSON.stringify({title: this.title.current.value, summmary: this.summary.current.value})
         })
