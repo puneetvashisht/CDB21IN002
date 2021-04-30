@@ -1,14 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import Parent from './components/Parent';
-import Dropdown from './components/Dropdown';
+// import Parent from './components/Parent';
+// import Dropdown from './components/Dropdown';
+import Country from './components/Country'
 
 function App() {
   return (
     <div>
-      <Parent></Parent>
-      <Dropdown></Dropdown>
-      
+    <Country></Country>   
     </div>
   );
 }
