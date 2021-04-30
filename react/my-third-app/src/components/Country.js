@@ -6,7 +6,7 @@ export default class Country extends Component {
         return (
             <div>
                 <h2>Country</h2>
-                <City></City>
+                <City country={"India"}></City>
             </div>
         )
     }

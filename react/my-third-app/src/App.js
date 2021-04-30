@@ -7,7 +7,9 @@ import Country from './components/Country'
 function App() {
   return (
     <div>
-    <Country></Country>   
+    {/* <Country></Country>
+        */}
+        <Dropdown></Dropdown>
     </div>
   );
 }
