@@ -8,8 +8,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import AddEmployee from './components/AddEmployee';
+import AddCourse from './components/AddCourse';
 import ViewCourses from './components/ViewCourses';
+import ReadForm from './components/ReadForm';
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
               <Link to="/users">Users</Link>
             </li>
             <li>
-              <Link to="/addemp">Add Course</Link>
+              <Link to="/addcourse">Add Course</Link>
             </li>
             <li>
               <Link to="/viewcourses">View Courses</Link>
@@ -42,15 +43,16 @@ function App() {
           <Route path="/users">
             <Users />
           </Route>
-          <Route path="/addemp">
-            <AddEmployee />
+          <Route path="/addcourse">
+            <AddCourse />
           </Route>
           <Route path="/viewcourses">
             <ViewCourses />
           </Route>
           <Route path="/">
-            <Home />
+            <ReadForm />
           </Route>
+          
         </Switch>
     </Router>
   );

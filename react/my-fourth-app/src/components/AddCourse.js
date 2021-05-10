@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class AddEmployee extends Component {
+export default class AddCourse extends Component {
     constructor(props) {
         super(props);
         this.addEmployee = this.addEmployee.bind(this);
