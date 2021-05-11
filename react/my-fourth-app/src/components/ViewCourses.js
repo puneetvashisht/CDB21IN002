@@ -26,7 +26,7 @@ export default function ViewCourses(){
 
     let courseList = courses.map((course,i)=>{
           return (
-            <Card key={i} caption= {course.title} desc={course.summmary} id={course.id}></Card>
+            <Card key={i} caption= {course.title} desc={course.summary} id={course.id}></Card>
           )
     })
 
