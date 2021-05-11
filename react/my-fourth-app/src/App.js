@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import Country from './components/Country'
 
 import {
@@ -11,6 +12,7 @@ import {
 import AddCourse from './components/AddCourse';
 import ViewCourses from './components/ViewCourses';
 import ReadForm from './components/ReadForm';
+import About from './components/About';
 
 
 function App() {
@@ -38,7 +40,7 @@ function App() {
         </nav>
       <Switch>
           <Route path="/about">
-            <About />
+            <About/>
           </Route>
           <Route path="/users">
             <Users />
@@ -65,9 +67,6 @@ function Home() {
   return <h2>Home</h2>;
 }
 
-function About() {
-  return <h2>About</h2>;
-}
 
 function Users() {
   return <h2>Users</h2>;
