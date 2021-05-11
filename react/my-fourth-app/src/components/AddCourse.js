@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Button from 'react-bootstrap/Button'; 
 
 
 export default function AddCourse(){
@@ -38,7 +39,7 @@ export default function AddCourse(){
         <input onChange={handleSummaryChange} value={summary} type="text" class="form-control" placeholder="Enter summary" aria-label="Username" aria-describedby="basic-addon1"/>
         </div>
 
-        <button onClick={addEmployee} className="btn btn-primary">Add Employee</button>
+        <Button onClick={addEmployee} variant="primary">Add Employee</Button>
         
     </div>
     )
