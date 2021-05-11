@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import Card from './Card'
+import axios from 'axios';
 
 export default function ViewCourses(){
 
@@ -14,12 +15,18 @@ export default function ViewCourses(){
 
   // replacement of ComponentDidMount
   useEffect(() => {
-    fetch('http://localhost:3004/courses')
-        .then(res=>res.json())
-        .then(data=>{
-          console.log(data);
-          setCourses(data);
-        })
+
+   axios.get('http://localhost:3004/courses')
+  .then(function (res) {
+    console.log(res);
+    setCourses(res.data)
+  })
+    // fetch('http://localhost:3004/courses')
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //       console.log(data);
+    //       setCourses(data);
+    //     })
   }, []);
 
   console.log(courses)

@@ -38,3 +38,16 @@
         - other methods to handle user event
         - props (passed into component), state (belongs to the component)
         - props are read-only, state can changed but by using setState method
+
+    React
+        - State & Props
+        - Parent Child communication
+        - Http communication (fetch, axios)
+        - Single Page Application (faster n responseive app)
+        - React Bootstrap
+        - Class vs Functional Components (useState, useEffect)
+    React Project on Personal Workout Tracker
+        - 1st level
+
+    NodeJS
+
