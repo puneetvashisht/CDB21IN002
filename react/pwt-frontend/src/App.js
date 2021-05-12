@@ -11,6 +11,7 @@ import { Navbar, Nav, NavDropdown, FormControl, Form, Button } from 'react-boots
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ViewWorkouts from "./components/ViewWorkouts";
 import AddWorkout from "./components/AddWorkout";
+import WorkoutOperations from "./components/WorkoutOperations";
 
 function App() {
   return (
@@ -40,6 +41,8 @@ function App() {
 
       <Switch>
         <Route path="/add" component={AddWorkout}>
+        </Route>
+        <Route path="/operations/:title" component={WorkoutOperations}>
         </Route>
         <Route path="/" component={ViewWorkouts}>
         </Route>

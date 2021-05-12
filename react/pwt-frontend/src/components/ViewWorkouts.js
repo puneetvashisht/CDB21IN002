@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import { Table } from 'react-bootstrap'
+import {Link} from "react-router-dom";
 
 export default function ViewWorkouts() {
 
@@ -21,7 +22,7 @@ export default function ViewWorkouts() {
        return (
           <tr key={i}>
             <td>{i+1}</td>
-            <td>{workout.title}</td>
+            <td><Link to={'/operations/' + workout.title}>{workout.title}</Link></td>
             <td>{workout.desc}</td>
             <td>{workout.cbpm}</td>
           </tr>
