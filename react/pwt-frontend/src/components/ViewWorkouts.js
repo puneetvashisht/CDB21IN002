@@ -5,6 +5,9 @@ import {Link} from "react-router-dom";
 export default function ViewWorkouts() {
 
     const [workouts, setWorkouts] = useState([]);
+    const [search, setSearch] = useState('');
+
+  
 
       // replacement of ComponentDidMount
   useEffect(() => {
@@ -18,18 +21,36 @@ export default function ViewWorkouts() {
    }, []);
 
 
-   let workoutsList = workouts.map((workout,i)=>{
-       return (
-          <tr key={i}>
-            <td>{i+1}</td>
-            <td><Link to={'/operations/' + workout.title}>{workout.title}</Link></td>
-            <td>{workout.desc}</td>
-            <td>{workout.cbpm}</td>
-          </tr>
-       )
-   })
+   const handleSearchChange = (event)=>{
+      console.log('title change')
+      
+      let filteredWorkouts = workouts.filter(workout => workout.title.startsWith(event.target.value))
+      setWorkouts(filteredWorkouts)
+      setSearch(event.target.value)
+   }
+
+   if(workouts){
+    var workoutsList = workouts.map((workout,i)=>{
+      return (
+         <tr key={i}>
+           <td>{i+1}</td>
+           <td><Link to={'/operations/' + workout.title}>{workout.title}</Link></td>
+           <td>{workout.desc}</td>
+           <td>{workout.cbpm}</td>
+         </tr>
+      )
+  })
+   }
+   
 
     return (
+
+      <>
+
+        <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Search By Title</span>
+        <input onChange={handleSearchChange} value={search} type="text" class="form-control" placeholder="Enter title" aria-label="Username" aria-describedby="basic-addon1"/>
+        </div>
         <Table striped bordered hover>
         <thead>
           <tr>
@@ -43,5 +64,6 @@ export default function ViewWorkouts() {
           {workoutsList}
         </tbody>
       </Table>
+      </>
     )
 }
