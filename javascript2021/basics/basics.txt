@@ -1,0 +1,6 @@
+1. full-fledged dynamic programming language
+2. Data Types
+            - Primitives: string, number & boolean
+            - Objects/Arrays and functions?
+3. Functions
+4. Events: onclick
