@@ -15,6 +15,28 @@
             - Scope(Scope Creation, Execution)
             - Function Constructor
             - Prototypes (Common place for all objects)
+        Scope: Global, Function, Block(let)
+        String, Numbers, Arrays, Date, Math
+        let courses = [
+            {title: "Ember"}, 
+            {title: "React"}, 
+            {title: "Angular"}
+        ]
+        courses.sort((a, b)=>a.title - b.title)
+        console.log(courses)
+        new Date()
+        new Date(year, month, day, hours, minutes, seconds, milliseconds)
+        new Date(milliseconds)
+
+        try {
+        Block of code to try
+        }
+        catch(err) {
+        Block of code to handle errors
+        }
+        finally {
+        Block of code to be executed regardless of the try / catch result
+        }
 
 
 
