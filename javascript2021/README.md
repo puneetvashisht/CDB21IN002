@@ -38,6 +38,14 @@
         Block of code to be executed regardless of the try / catch result
         }
 
+        this:
+        In a method, this refers to the owner object.
+        Alone, this refers to the global object.
+        In a function, this refers to the global object.
+        In a function, in strict mode, this is undefined.
+        In an event, this refers to the element that received the event.
+        Methods like call(), and apply() can refer this to any object.
+        Bind().. 
 
 
     
@@ -49,26 +57,25 @@
             - Primitives: string, number & boolean
             - Objects and functions?
         Troubleshooting
-        Global objects 
         Dynamic and Mutable objects
         Prototypes & Prototypal nature (with diagram)
         Loosely typed (overloading)
         Inheritance and polymorphism
         Setter & getters
-        Async -> Callback, promises, Async/Await
-        Closure, Memoization, Currying (practical examples)
         Classes: Math, Date, String
         Arrays
-        ABC functions and execution context
+        ABC functions
         this
         Exception & Errors
-        AJAX
-        Arrow Functions
         Regular Expressions
-
+        Arrow Functions
+        
+        AJAX
+        Global objects 
+        Closure, Memoization, Currying (practical examples)
+        Async -> Callback, promises, Async/Await
         ES6 features
         Modules, Webpack & Gulp
-
         Progressive web apps (PWAs)
 
 
