@@ -16,3 +16,4 @@ console.log(person.getDetails('Ravi'))
 var boundNameAndAge = nameAndAge.bind(person, 'Ravi')
 console.log(boundNameAndAge())
 // console.log(nameAndAge('Ravi'))
+

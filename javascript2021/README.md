@@ -69,11 +69,12 @@
         Exception & Errors
         Regular Expressions
         Arrow Functions
-        
         AJAX
         Global objects 
-        Closure, Memoization, Currying (practical examples)
         Async -> Callback, promises, Async/Await
+        Closure 
+        
+        Memoization, Currying (practical examples)
         ES6 features
         Modules, Webpack & Gulp
         Progressive web apps (PWAs)
