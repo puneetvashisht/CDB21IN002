@@ -72,11 +72,11 @@
         AJAX
         Global objects 
         Async -> Callback, promises, Async/Await
-        Closure 
+        Closure
+        ES6 features 
+        Modules, Webpack & Gulp
         
         Memoization, Currying (practical examples)
-        ES6 features
-        Modules, Webpack & Gulp
         Progressive web apps (PWAs)
 
 

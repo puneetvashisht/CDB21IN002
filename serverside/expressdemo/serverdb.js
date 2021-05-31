@@ -68,6 +68,7 @@ app.post('/courses', (req, res) => {
 })
 
 app.delete('/courses/:id', (req, res) => {
+
     getConnection((db) => {
         const collection = db.collection('courses');
         collection.deleteOne({_id: ObjectId(req.params.id)}, ((err, docs) => {
