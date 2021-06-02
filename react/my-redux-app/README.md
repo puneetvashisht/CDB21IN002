@@ -11,3 +11,10 @@
     Action:
         {type:, payload:}
         store.dispatch(action)
+
+    React-Redux
+        1. install react-redux
+        2. create reducer and store
+        3. Wrap App with Provider tag to make store available to entire app
+        4. connect function -> mapStateToProps (extract state into props)
+        5. Use props instead of state in component
