@@ -14,9 +14,9 @@ export default function ViewWorkouts() {
 
      fetch('http://localhost:8080/api/v1/workouts')
          .then(res=>res.json())
-         .then(data=>{
-           console.log(data);
-           setWorkouts(data);
+         .then(response=>{
+           console.log(response.data);
+           setWorkouts(response.data);
          })
    }, []);
 
