@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
+import {fetchEmployees, deleteEmployee} from '../actions/action';
 
 class ViewEmployee extends Component {
 
@@ -9,13 +10,21 @@ class ViewEmployee extends Component {
        
     }
 
-    render() {
+    componentDidMount() {
+        this.props.onFetchEmployee();
+    }
+    
 
-        let employeeList = this.props.employees.map((employee, i)=>{
-            return (
-                <li key={i}>{employee.name} <button onClick={this.deleteEmployee.bind(this, employee.id)}> X </button></li>
-            )
-        })
+    render() {
+        let employeeList = []
+        if(this.props.employees){
+             employeeList = this.props.employees.map((employee, i)=>{
+                return (
+                    <li key={i}>{employee.employee_name} <button onClick={this.deleteEmployee.bind(this, employee.id)}> X </button></li>
+                )
+            })
+        }
+        
 
         return (
             <div>
@@ -30,7 +39,7 @@ class ViewEmployee extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
+    console.log('Inside Component ', state);
     return {
         employees: state.employees
     }
@@ -38,7 +47,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onDeleteEmployee: (id)=>dispatch({type: 'DELETE_EMPLOYEE', payload: {id}})
+        onDeleteEmployee: (id)=>dispatch(deleteEmployee({id})),
+        onFetchEmployee: ()=>dispatch(fetchEmployees())
+
     }
 
 }

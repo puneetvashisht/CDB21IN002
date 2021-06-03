@@ -13,18 +13,19 @@ function Totalemp(props) {
 //   }, []);
 
   console.log(props);
-
   let EmployeeList = props.employees.map((Employee, i) => {
-    return (
-      <tr key={i}>
-        <td>{i + 1}</td>
-        <td>{Employee.name}</td>
-        <td>{Employee.salary}</td>
-        <td>{Employee.employee_age}</td>
-        <td>{Employee.profile_image}</td>
-      </tr>
-    )
-  });
+      return (
+        <tr key={i}>
+          <td>{i + 1}</td>
+          <td>{Employee.employee_name}</td>
+          <td>{Employee.employee_salary}</td>
+          <td>{Employee.employee_age}</td>
+          <td>{Employee.profile_image}</td>
+        </tr>
+      )
+    });
+  
+ 
 
   return (
     <table className="table table-striped table-hover">
