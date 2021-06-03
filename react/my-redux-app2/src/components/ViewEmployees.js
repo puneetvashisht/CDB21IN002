@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
 import {fetchEmployees, deleteEmployee} from '../actions/action';
+class ViewEmployees extends Component {
 
-class ViewEmployee extends Component {
+    constructor(){
+        super();
+        // this.state = {employees: []}
+    }
 
     deleteEmployee(id){
         console.log("Deleting employee with id: ", id);
         this.props.onDeleteEmployee(id);
-
-       
     }
 
     componentDidMount() {
         this.props.onFetchEmployee();
-    }
+    }   
     
 
     render() {
@@ -39,6 +41,7 @@ class ViewEmployee extends Component {
     }
 }
 
+
 const mapStateToProps = (state) => {
     console.log('Inside Component ', state);
     return {
@@ -56,4 +59,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 // export default ViewEmployee;
-export default connect(mapStateToProps, mapDispatchToProps)(ViewEmployee);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewEmployees);
