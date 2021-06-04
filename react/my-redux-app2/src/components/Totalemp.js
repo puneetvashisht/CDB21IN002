@@ -46,7 +46,7 @@ function Totalemp(props) {
 const mapStateToProps = (state) => {
     console.log('Inside Component ', state);
     return {
-        employees: state.employees
+        employees: state.reducer.employees
     }
 }
 

@@ -5,6 +5,7 @@ import Totalemp from './components/Totalemp';
 import AddEmployee from './components/AddEmployee';
 import Increment from './components/Increment';
 import Decrement from './components/Decrement';
+import ViewWorkouts from './components/ViewWorkouts';
 
 
 function App() {
@@ -12,11 +13,14 @@ function App() {
 
   return (
     <div className="App">
-      {/* <AddEmployee></AddEmployee>
+      <ViewWorkouts></ViewWorkouts>
+      <hr/>
+      <AddEmployee></AddEmployee>
      <ViewEmployees></ViewEmployees>
-     <Totalemp></Totalemp> */}
-     <Increment></Increment>
-     <Decrement></Decrement>
+     <Totalemp></Totalemp>
+    
+     {/* <Increment></Increment>
+     <Decrement></Decrement> */}
     </div>
   );
 }

@@ -3,14 +3,35 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {applyMiddleware, createStore} from 'redux'
+import {applyMiddleware, createStore, combineReducers} from 'redux'
 import reducer from './store/reducer'
+import workoutReducer from './store/workout-reducer'
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension'
 
+// Middleware written as ES5 functions
+
+
+const loggerMiddleware = storeAPI => next => action => {
+  console.log('dispatching', action)
+  let result = next(action)
+  console.log('next state', storeAPI.getState())
+  return result
+}
+
+
+const middleware = composeWithDevTools(applyMiddleware(loggerMiddleware, thunk))
 
 // Create a store with initial state
-const appStore = createStore(reducer, applyMiddleware(thunk));
+
+// {
+//   // Define a top-level state field named `todos`, handled by `todosReducer`
+//   todos: todosReducer,
+//   filters: filtersReducer
+// }
+
+const appStore = createStore(combineReducers({reducer, workoutReducer}), middleware);
 
 ReactDOM.render(
   <React.StrictMode>

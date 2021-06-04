@@ -43,11 +43,24 @@
         - State & Props
         - Parent Child communication
         - Http communication (fetch, axios)
+        - Lifecycle
         - Single Page Application (faster n responseive app)
         - React Bootstrap
         - Class vs Functional Components (useState, useEffect)
-    React Project on Personal Workout Tracker
-        - 1st level
+        - Hooks (useEffect), Custom Hooks
+        - Controlled & Uncontrolled
+        - Redux
+            - Global state as single source of truth: consistent data
+            - No lifting state, making it availble in component hierarchies
+            - Structure (specific spots)
+            - Context API (limitations) for global state (simple replacement for Redux)
+            - Disadvantages: Complex code : store, middleware, thunk, actions, dispatch
+            - Redux Saga (Generators)
+        - React Bootstrap
+        - Styling (Login/Registration), Validations(checkboxes),  useContext, lazyLoading
+    
+    Testing
 
+    
     NodeJS
 

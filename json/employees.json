@@ -1,4 +1,18 @@
 {
+  "workouts": [
+    {
+      "id": 1,
+      "title": "Jogging"
+    },
+    {
+      "id": 2,
+      "title": "Jogging"
+    },
+    {
+      "id": 3,
+      "title": "Jogging"
+    }
+  ],
   "employees": [
     {
       "id": 1,
@@ -195,6 +209,20 @@
       "employee_age": 61,
       "profile_image": "",
       "id": 28
+    },
+    {
+      "employee_name": "Redux",
+      "employee_salary": 99999,
+      "employee_age": 61,
+      "profile_image": "",
+      "id": 29
+    },
+    {
+      "employee_name": "Redux",
+      "employee_salary": 99999,
+      "employee_age": 61,
+      "profile_image": "",
+      "id": 30
     }
   ]
 }

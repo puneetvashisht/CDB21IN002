@@ -18,3 +18,9 @@
         3. Wrap App with Provider tag to make store available to entire app
         4. connect function -> mapStateToProps (extract state into props), mapDispatchToProps (makes dispatch available as props)
         5. Use props instead of state in component
+
+
+    React : 
+React Introduction,The Build Workflow, Create React app using npm and react project folder structure, JSX and React Components, Functional and Class-based Component, Styling React Components, Components with Props, Working with List and conditions, Events Handling, State & State Manipulation, Component Lifecycle, Forms and Form validations, Environment Variables,
+Http Requests in React, Lifecycle Hooks , Routing and SPAs, Lazy Loading, Redux state management,
+Multiple Reducers, Middleware,Redux Saga.

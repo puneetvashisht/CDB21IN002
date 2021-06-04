@@ -43,9 +43,9 @@ class ViewEmployees extends Component {
 
 
 const mapStateToProps = (state) => {
-    console.log('Inside Component ', state);
+    // console.log('Inside Component ', state);
     return {
-        employees: state.employees
+        employees: state.reducer.employees
     }
 }
 
