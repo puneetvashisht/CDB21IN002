@@ -7,10 +7,17 @@ import {applyMiddleware, createStore} from 'redux'
 import reducer from './store/reducer'
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga'
+import mySaga from './sagas'
+
+const sagaMiddleware = createSagaMiddleware();
 
 
 // Create a store with initial state
-const appStore = createStore(reducer, applyMiddleware(thunk));
+const appStore = createStore(reducer, applyMiddleware(sagaMiddleware));
+
+// then run the saga
+sagaMiddleware.run(mySaga)
 
 ReactDOM.render(
   <React.StrictMode>
