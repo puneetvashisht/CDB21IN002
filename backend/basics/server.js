@@ -5,6 +5,29 @@ const fs = require('fs')
 // using http method createServer to deal with Http request/response
 let server = http.createServer((req,res)=>{
     console.log(req.url)
+
+    // if(req.url.startsWith('/courses')){
+    //     if(req.method === 'GET'){
+
+    //     }
+    //     if(req.method === 'POST'){
+    
+    //     }
+    // }
+
+    // else if(req.url.startsWith('/employees')){
+    //     if(req.method === 'GET'){
+
+    //     }
+    //     if(req.method === 'POST'){
+    
+    //     }
+    // }
+
+
+   
+
+
     fs.readFile('files/' + req.url, (err, data)=>{
         if(err) throw err;
         console.log('' + data)

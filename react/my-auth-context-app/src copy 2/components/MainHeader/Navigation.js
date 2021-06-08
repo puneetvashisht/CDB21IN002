@@ -1,24 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {useAuth} from '../../context/auth'
+import { useAuth } from '../../context/auth';
 
 import classes from './Navigation.module.css';
 
 
 const Navigation = (props) => {
-    const {isLoggedIn, setIsLoggedIn} = useAuth();
-    console.log('In navigation comp: ', isLoggedIn)
+
+  const {isLoggedIn, setIsLoggedIn} = useAuth();
+  console.log('In navigation comp: ', isLoggedIn)
   return (
     <nav className={classes.nav}>
       <ul>
         {isLoggedIn && (
           <li>
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </li>
         )}
         {isLoggedIn && (
           <li>
-            <a href="/admin">Admin</a>
+            <Link to="/admin">Admin</Link>
           </li>
         )}
         {isLoggedIn && (
