@@ -3,18 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import workoutReducer from './store/workout-reducer'
-import {createStore} from 'redux';
-import {Provider} from 'react-redux'
-
-
-const appStore = createStore(workoutReducer)
 
 ReactDOM.render(
   <React.StrictMode>
-   <Provider store={appStore}>
-     <App />
-    </Provider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
