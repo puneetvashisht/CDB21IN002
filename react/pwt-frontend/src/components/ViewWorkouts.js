@@ -89,6 +89,15 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+
+    // synchronous dispatches
+
+    // setTimeout(()=>{
+    //   dispatch({type: 'VIEW_WORKOUTS'})
+    // }, 100)
+
+   
+
       onFetchWorkouts: ()=>dispatch(actions.fetchWorkouts())
 
   }
