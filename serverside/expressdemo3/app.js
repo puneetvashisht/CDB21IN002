@@ -25,6 +25,25 @@ app.get('/hello', (req, res) => {
     res.json({ message: 'Hello world!! from NodeJS' })
 })
 
+app.delete('/employees/:id', async(req,res)=>{
+    console.log(req.params.id);
+    Employee.deleteOne({ _id: req.params.id }, function (err) {
+        if (err) throw err;
+        // deleted at most one tank document
+        res.json({sucess: true})
+      });
+})
+
+
+app.patch('/employees/:id', async(req,res)=>{
+    console.log(req.params.id);
+    Employee.updateOne({ _id: req.params.id }, req.body, function(err, data) {
+        if (err) throw err;
+        // deleted at most one tank document
+        res.json({sucess: true})
+      });
+})
+
 // fetching a resource from server
 app.get('/employees', async (req, res) => {
 
