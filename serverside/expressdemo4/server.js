@@ -15,6 +15,9 @@ dbConnect()
 app.use(express.json())
 
 // All routes ..
+// URL = http://localhost:8080/api/v1
+// http://localhost:8080/api/v1/workouts/Jogging
+// {{URL}}/workouts/Jogging
 app.use('/api/v1/workouts', WorkoutRoutes)
 app.use('/api/v1/users', UserRoutes)
 

@@ -1,5 +1,7 @@
 
 const Workout = require('../models/workouts')
+
+// This method would be blocked for direct access.. needs a valid token req header
 const findAllWorkouts = async(req, res, next)=>{
 
     let workouts = await Workout.find();
