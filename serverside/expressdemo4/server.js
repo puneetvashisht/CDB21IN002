@@ -26,7 +26,12 @@ app.use('/api/v1/users', UserRoutes)
 app.use((err, req,res,next)=>{
   console.log('Error hander.... '.red)
   console.log(`${err.message}`.red.bold)
-  res.status(500).json({message: err.message});
+  let statusCode = 500;
+  if(err.status){
+    statusCode = err.status
+  }
+
+  res.status(statusCode).json({message: err.message});
 })
 
 

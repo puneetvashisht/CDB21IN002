@@ -5,12 +5,17 @@ var router = express.Router()
 
 const {findAllWorkouts, findWorkoutByTitle, createWorkout} = require('../controller/workout')
 
+const {protect} = require('../middleware/auth')
+
+
+
+
 router.route('/')
 .get(findAllWorkouts)
-.post(createWorkout)
+.post(protect, createWorkout)
 
 router.route('/:title')
-.get(findWorkoutByTitle)
+.get(protect, findWorkoutByTitle)
 
 
 // // fetching a resource from server

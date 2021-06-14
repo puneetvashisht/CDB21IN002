@@ -5,8 +5,9 @@ const register = async (req, res, next) => {
     try {
         console.log(req.body)
         let { email, password } = req.body;
+        if(!email) next({status: 404 ,message: 'Email not provided'})
         let user = await User.create({ email, password });
-        let token = user.getSignedJwtToken(email);
+        let token = user.getSignedJwtToken(user._id);
         res.status(201).json({ auth: true, token })
     }
     catch (err) {
@@ -28,7 +29,7 @@ const login = async (req, res, next) => {
         // password match
         let result = user.matchPasswords(password);
         if (result) {
-            let token = user.getSignedJwtToken(email);
+            let token = user.getSignedJwtToken(user._id);
             res.json({ auth: true, token })
         }
         else {
