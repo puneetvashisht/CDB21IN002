@@ -3,8 +3,10 @@ const app = express();
 const dbConnect = require('./db');
 const WorkoutRoutes = require('./routes/workout')
 const UserRoutes = require('./routes/user')
+const errorHandler = require('./middleware/errorHandler')
 require('colors')
 require('dotenv').config()
+
 
 
 // Connect to DB
@@ -23,16 +25,7 @@ app.use('/api/v1/users', UserRoutes)
 
 
 // Error Handler
-app.use((err, req,res,next)=>{
-  console.log('Error hander.... '.red)
-  console.log(`${err.message}`.red.bold)
-  let statusCode = 500;
-  if(err.status){
-    statusCode = err.status
-  }
-
-  res.status(statusCode).json({message: err.message});
-})
+app.use(errorHandler)
 
 
 // listen port

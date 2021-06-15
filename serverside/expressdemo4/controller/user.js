@@ -1,52 +1,50 @@
 const User = require('../models/users')
+const asyncHandler = require('../middleware/async')
 
 
-const register = async (req, res, next) => {
-    try {
-        console.log(req.body)
-        let { email, password } = req.body;
-        if(!email) next({status: 404 ,message: 'Email not provided'})
-        let user = await User.create({ email, password });
-        let token = user.getSignedJwtToken(user._id);
-        res.status(201).json({ auth: true, token })
-    }
-    catch (err) {
-        console.log(err);
-        // res.status(500).json({success:false, message: err.message});
-        next(err);
-    }
+const register = asyncHandler(async (req, res, next) => {
+    // try {
+    let user = await User.create(req.body);
+    let token = user.getSignedJwtToken(user._id);
+    res.status(201).json({ auth: true, token })
+    // }
+    // catch (err) {
+    //     console.log(err);
+    //     // res.status(500).json({success:false, message: err.message});
+    //     next(err);
+    // }
 
-}
+})
 
 
-const login = async (req, res, next) => {
+const login = asyncHandler(async (req, res, next) => {
     console.log(req.body)
 
     let { email, password } = req.body
 
+    if (!email) return next({ status: 401, message: 'Email is not provided' })
+
     let user = await User.findOne({ email });
-    if (user) {
-        // password match
-        let result = user.matchPasswords(password);
-        if (result) {
-            let token = user.getSignedJwtToken(user._id);
-            res.json({ auth: true, token })
-        }
-        else {
-            res.json({ auth: false })
-        }
-    }
+    if (!user) return next({ status: 401, message: 'Email provided is wrong!!' })
+    // password match
+    let result = await user.matchPasswords(password);
+    if (!result) return next({ status: 401, message: 'Password provided is wrong!!' })
 
-}
+    let token = user.getSignedJwtToken(user._id);
+    res.json({ auth: true, token })
 
 
 
-const fetchAllUsers = (req, res) => {
+})
+
+
+
+const fetchAllUsers = asyncHandler(async (req, res) => {
     User.find((err, docs) => {
         console.log(docs);
         res.json(docs);
     })
-}
+})
 
 
 module.exports = { register, login, fetchAllUsers }

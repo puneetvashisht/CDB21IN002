@@ -1,41 +1,39 @@
 
 const Workout = require('../models/workouts')
+const asyncHandler = require('../middleware/async')
 
 // This method would be blocked for direct access.. needs a valid token req header
-const findAllWorkouts = async (req, res, next) => {
-
+const findAllWorkouts = asyncHandler(async (req, res, next) => {
     let workouts = await Workout.find();
     res.json({ success: true, data: workouts });
-    next();
-        
-}
-const findWorkoutByTitle = async (req, res) => {
+})
+const findWorkoutByTitle = asyncHandler(async (req, res) => {
     console.log('In findWorkoutByTitle..')
-    try {
+    // try {
         let workout = await Workout.findOne({ title: req.params.title });
         if (!workout) res.status(404).json({ success: false, message: `Workout by title ${req.params.title} not found` })
 
         res.json({ success: true, data: workout });
-    }
-    catch (err) {
-        console.log(err);
-        res.status(500).json({ success: false, message: err.message });
-    }
+    // }
+    // catch (err) {
+    //     console.log(err);
+    //     res.status(500).json({ success: false, message: err.message });
+    // }
     // Workout.findOne({title: req.params.title},(err, docs)=>{
     //     console.log(docs);
     //     res.json(docs);
     // })
-}
-const createWorkout = async (req, res, next) => {
-    try {
+})
+const createWorkout = asyncHandler(async (req, res, next) => {
+    // try {
         let workout = await Workout.create(req.body);
         res.json({ success: true, data: workout });
-    }
-    catch (err) {
-        console.log(err);
-        // res.status(500).json({success:false, message: err.message});
-        next(err);
-    }
+    // }
+    // catch(err) {
+    //     console.log(err);
+    //     // res.status(500).json({success:false, message: err.message});
+    //     next(err);
+    // }
 
     //logic to insert
     //    console.log(req.body)
@@ -54,6 +52,6 @@ const createWorkout = async (req, res, next) => {
     // await
 
 
-}
+})
 
 module.exports = { findAllWorkouts, findWorkoutByTitle, createWorkout }

@@ -17,6 +17,8 @@ const protect = async (req, res, next) =>{
             var decoded = jwt.verify(token, `${process.env.JWT_SECRET}`);
             console.log(decoded) // bar
             let user = await User.findById(decoded.id)
+
+            // User is availabe in request object
             req.user = user;
             console.log('Found user', user)
             next();
@@ -34,4 +36,15 @@ const protect = async (req, res, next) =>{
     
 }
 
-module.exports = {protect}
+
+
+const authorize = (...roles) => async (req, res, next) =>{
+    console.log('Actual user role: ', req.user.role)
+    console.log('Roles allowed: ', roles);
+    if(!roles.includes(req.user.role)){
+        return next({ status: 403, message: 'User not authorized to access!!' })
+    }
+    next();
+}
+
+module.exports = {protect, authorize}
