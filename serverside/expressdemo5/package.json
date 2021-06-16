@@ -4,6 +4,7 @@
   "description": "Workouts & Users -> add workout, register user .....\r     1. Express",
   "main": "index.js",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
