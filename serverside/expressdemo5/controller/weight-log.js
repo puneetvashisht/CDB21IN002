@@ -7,8 +7,8 @@ const createWeightLog = asyncHandler(async (req, res, next) => {
 })
 
 const findAllWeightLogs = asyncHandler(async (req, res, next) => {
-        let weightLogs = await WeightLog.find();
-        res.json({ success: true, data: weightLogs });
+        // let weightLogs = await WeightLog.find();
+        res.json(res.advancedResults);
 })
 
 const deleteWeightLog = asyncHandler(async (req, res, next) => {
@@ -17,4 +17,11 @@ const deleteWeightLog = asyncHandler(async (req, res, next) => {
     res.json({ success: true});
 })
 
-module.exports = {createWeightLog, findAllWeightLogs, deleteWeightLog}
+
+const updateWeightLog = asyncHandler(async (req, res, next) => {
+        let result = await WeightLog.findByIdAndUpdate(req.params.id, req.body);
+        console.log(result);
+        res.json({ success: true});
+    })
+
+module.exports = {createWeightLog, findAllWeightLogs, deleteWeightLog, updateWeightLog}

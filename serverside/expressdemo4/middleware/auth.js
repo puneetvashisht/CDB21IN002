@@ -1,6 +1,8 @@
 const User = require('../models/users')
 const jwt = require('jsonwebtoken')
 
+
+//Protect middleware to validate token .. only authenticated users are allowed to go to next 
 const protect = async (req, res, next) =>{
     console.log(req.headers);
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
@@ -37,7 +39,7 @@ const protect = async (req, res, next) =>{
 }
 
 
-
+//Authorize middleware to validate token .. only authorized roles are allowed to go to next 
 const authorize = (...roles) => async (req, res, next) =>{
     console.log('Actual user role: ', req.user.role)
     console.log('Roles allowed: ', roles);

@@ -55,4 +55,13 @@ const createWorkout = asyncHandler(async (req, res, next) => {
 
 })
 
-module.exports = { findAllWorkouts, findWorkoutByTitle, createWorkout }
+
+const updateStartTime = asyncHandler(async (req, res, next) => {
+    let result = await Workout.findByIdAndUpdate(req.params.id, {startTime: new Date()});
+    console.log(result);
+    res.json({ success: true});
+})
+
+
+
+module.exports = { findAllWorkouts, findWorkoutByTitle, createWorkout, updateStartTime }

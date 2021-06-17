@@ -3,7 +3,7 @@ const Workout = require('../models/workouts')
 var express = require('express')
 var router = express.Router()
 
-const {findAllWorkouts, findWorkoutByTitle, createWorkout} = require('../controller/workout')
+const {findAllWorkouts, findWorkoutByTitle, createWorkout, updateStartTime} = require('../controller/workout')
 
 const {protect, authorize} = require('../middleware/auth')
 const { advancedFind } = require('../middleware/advancedFind')
@@ -18,6 +18,8 @@ router.route('/')
 router.route('/:title')
 .get(protect, findWorkoutByTitle)
 
+router.route('/start/:id')
+.patch(updateStartTime)
 
 // // fetching a resource from server
 // router.get('/',  (req, res) => {

@@ -16,7 +16,13 @@ const WorkoutSchema = new Schema({
       type: Number,
       min: 10
   },
-  date: {
+    startTime: {
+        type: Date
+    },
+    endTime: {
+        type: Date
+    },
+    createdAt: {
       type: Date,
       default: new Date()
   },
