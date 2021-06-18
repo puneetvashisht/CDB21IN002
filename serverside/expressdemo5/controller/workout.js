@@ -59,7 +59,7 @@ const createWorkout = asyncHandler(async (req, res, next) => {
 const updateStartTime = asyncHandler(async (req, res, next) => {
     let result = await Workout.findByIdAndUpdate(req.params.id, {startTime: new Date()});
     console.log(result);
-    res.json({ success: true});
+    res.json({ success: true, data: result});
 })
 
 

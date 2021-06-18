@@ -2,7 +2,7 @@
 var express = require('express')
 var router = express.Router()
 const User = require('../models/users')
-const {register, login, fetchAllUsers} = require('../controller/user')
+const {register, login, fetchAllUsers, uploadProfilePic} = require('../controller/user')
 const {protect} = require('../middleware/auth')
 const {advancedFind} = require('../middleware/advancedFind')
 
@@ -19,6 +19,9 @@ router.route('/')
 
 router.route('/login')
 .post(login)
+
+router.route('/:id/photo')
+.put(uploadProfilePic)
 
 
 module.exports = router;

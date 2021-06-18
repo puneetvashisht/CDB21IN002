@@ -4,11 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import workoutReducer from './store/workout-reducer'
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import thunkMiddleware from 'redux-thunk'
 import {Provider} from 'react-redux'
 
 
-const appStore = createStore(workoutReducer)
+const appStore = createStore(workoutReducer ,applyMiddleware(thunkMiddleware))
 
 ReactDOM.render(
   <React.StrictMode>

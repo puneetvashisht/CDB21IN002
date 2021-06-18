@@ -1,4 +1,5 @@
 const User = require('../models/users')
+const path = require('path')
 const asyncHandler = require('../middleware/async')
 
 
@@ -48,5 +49,41 @@ const fetchAllUsers = asyncHandler(async (req, res) => {
     // res.json({ success: true, data: users });
 })
 
+const uploadProfilePic = asyncHandler(async (req, res, next) => {
+    // find the user
+    let user = await User.findById(req.params.id);
+    if(!user) return next({ status: 404, message: 'User not found!!' });
 
-module.exports = { register, login, fetchAllUsers }
+    // capture file and 
+    console.log(req.files)
+    if(!req.files) return next({ status: 404, message: 'Profile pic not provided!!' });
+
+    const file = req.files.file;
+
+    file.name = `pic_${user.id}${path.parse(file.name).ext}`
+
+    console.log(file.name)
+  // move to a uploads directory
+
+    if(file.size > 10000) return next({ status: 404, message: 'Profile pic not provided!!' });
+    // if(file.mimetype.startsWith('image'))
+
+    file.mv('./public/uploads/'+ file.name, async(err)=>{
+        if(err) return next({ status: 500, message: 'Profile pic could not be uploadded!!' });
+
+    // update the user with the file path
+    await User.findByIdAndUpdate(req.params.id, {photo: file.name});
+
+    res.json({success: true, data: file.name})
+
+    })
+
+    
+
+  
+
+
+})
+
+
+module.exports = { register, login, fetchAllUsers,uploadProfilePic}

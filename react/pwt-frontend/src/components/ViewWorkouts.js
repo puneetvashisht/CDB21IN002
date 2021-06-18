@@ -43,7 +43,7 @@ function ViewWorkouts(props) {
       return (
          <tr key={i}>
            <td>{i+1}</td>
-           <td><Link to={'/operations/' + workout.title}>{workout.title}</Link></td>
+           <td><Link to={'/operations/' + workout._id}>{workout.title}</Link></td>
            <td>{workout.desc}</td>
            <td>{workout.cbpm}</td>
          </tr>

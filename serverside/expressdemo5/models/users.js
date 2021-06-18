@@ -41,6 +41,10 @@ const UsersSchema = new Schema({
       enum: ['user', 'trainer', 'admin'],
       default: 'user'
   },
+  photo: {
+      type: String,
+      default: 'no-photo.jpg'
+  },
   addresses: [AddressSchema]
       
 });

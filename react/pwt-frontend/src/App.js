@@ -42,7 +42,7 @@ function App() {
       <Switch>
         <Route path="/add" component={AddWorkout}>
         </Route>
-        <Route path="/operations/:title" component={WorkoutOperations}>
+        <Route path="/operations/:id" component={WorkoutOperations}>
         </Route>
         <Route path="/" component={ViewWorkouts}>
         </Route>

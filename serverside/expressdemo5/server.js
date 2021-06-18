@@ -5,6 +5,8 @@ const WorkoutRoutes = require('./routes/workout')
 const UserRoutes = require('./routes/user')
 const WeightLogRoutes = require('./routes/weight-log')
 const errorHandler = require('./middleware/errorHandler')
+const fileupload = require('express-fileupload')
+const cors = require('cors')
 require('colors')
 require('dotenv').config()
 
@@ -13,6 +15,13 @@ dbConnect()
 
 // Request json parser
 app.use(express.json())
+app.use(fileupload());
+
+// enable cors request
+app.use(cors());
+
+
+app.use(express.static('public'))
 
 // All routes ..
 // URL = http://localhost:8080/api/v1
