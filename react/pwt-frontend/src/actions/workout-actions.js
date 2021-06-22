@@ -1,3 +1,5 @@
+import  authHeader from './auth-header';
+
 export const FETCH_WORKOUTS = "FETCH_WORKOUTS"
 export const START_WORKOUT = "START_WORKOUT"
 export const END_WORKOUT = "END_WORKOUT"
@@ -14,7 +16,8 @@ const startWorkoutAction = (payload) => {
 export const startWorkout = (id) => {
     return (dispatch) => {
         fetch('http://localhost:8080/api/v1/workouts/start/' + id, {
-            method:'PATCH'
+            method:'PATCH',
+            headers: authHeader()
         })
         .then(res=>res.json())
         .then(response=>{
@@ -32,10 +35,13 @@ const findWorkouts = (payload) => {
     }
 }
 
+
 // asynchrnous dispatches
 export const fetchWorkouts = () => {
     return (dispatch) => {
-        fetch('http://localhost:8080/api/v1/workouts')
+        fetch('http://localhost:8080/api/v1/workouts', {
+            headers: authHeader()
+        })
         .then(res=>res.json())
         .then(response=>{
             console.log(response);

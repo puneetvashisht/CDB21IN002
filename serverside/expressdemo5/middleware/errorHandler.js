@@ -3,7 +3,7 @@ const errorHandler = (err, req,res,next)=>{
     console.dir(err);
     console.log(`${err.message}`.red.bold)
     // let statusCode = 500;
-    let {status, message} = err;
+    let {status, message, auth} = err;
 
     console.log(typeof(err.code));
 
@@ -17,7 +17,7 @@ const errorHandler = (err, req,res,next)=>{
         status = 401;
         // message= 'Validation Error!! '
     }
-    res.status(status || 500).json({message});
+    res.status(status || 500).json({auth, message});
 }
 
 module.exports = errorHandler;

@@ -6,7 +6,7 @@ const asyncHandler = require('../middleware/async')
 const register = asyncHandler(async (req, res, next) => {
     // try {
     let user = await User.create(req.body);
-    let token = user.getSignedJwtToken(user._id);
+    let token = user.getSignedJwtToken(user);
     res.status(201).json({ auth: true, token })
     // }
     // catch (err) {
@@ -23,15 +23,15 @@ const login = asyncHandler(async (req, res, next) => {
 
     let { email, password } = req.body
 
-    if (!email) return next({ status: 401, message: 'Email is not provided' })
+    if (!email) return next({ status: 401,auth: false, message: 'Email is not provided' })
 
     let user = await User.findOne({ email });
-    if (!user) return next({ status: 401, message: 'Email provided is wrong!!' })
+    if (!user) return next({ status: 401,auth: false, message: 'Email provided is wrong!!' })
     // password match
     let result = await user.matchPasswords(password);
-    if (!result) return next({ status: 401, message: 'Password provided is wrong!!' })
+    if (!result) return next({ status: 401, auth: false, message: 'Password provided is wrong!!' })
 
-    let token = user.getSignedJwtToken(user._id);
+    let token = user.getSignedJwtToken(user);
     res.json({ auth: true, token })
 
 

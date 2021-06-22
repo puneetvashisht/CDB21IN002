@@ -63,10 +63,11 @@ UsersSchema.methods.matchPasswords = async function(enteredPassword) {
 }
 
 // model method to generate jwt token .. jsonwebtoken
-UsersSchema.methods.getSignedJwtToken = function(id) {
+UsersSchema.methods.getSignedJwtToken = function(user) {
     const token = jwt.sign({
         exp: Math.floor(Date.now() / 1000) + (60 * 15),
-        id
+        id: user._id,
+        role: user.role
     }, `${process.env.JWT_SECRET}`);
     console.log(token)
     return token;

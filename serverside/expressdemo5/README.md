@@ -36,6 +36,27 @@ Workouts & Users -> add workout, register user .....
         sort - 
         populate - populate ref entity data
 
+    
+    Backend API (NodeJS)
+        http urls&methods -> nodejs controller method -> db interaction
+        http://localhost:8080/api/v1/workouts(GET)  -> findAllWorkouts -> find() 
+        CORS (cross origin resource --- different apps can acces backend data)
+    
+
+    React Component (List of workouts) : fetch(http://localhost:8080/api/v1/workouts)
+
+    React Redux
+        Component - dispatches an action, mapStateToProps
+        Action (Thunk Middleware)- fetch(http://localhost:8080/api/v1/workouts)
+        Reducer - changes the state
+
+
+    LoginComponent    -- http://localhost:8080/api/v1/users/login(POST)
+    localStorage.setItem('token', res.token)
+    transition to landing
+
+    
+
 
 
 

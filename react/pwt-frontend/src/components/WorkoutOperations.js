@@ -92,7 +92,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        workout: state.currentWorkout
+        workout: state.workoutReducer.currentWorkout
     }
 }
 

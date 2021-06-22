@@ -83,7 +83,7 @@ function ViewWorkouts(props) {
 const mapStateToProps = (state) => {
   console.log('Inside Component ', state);
   return {
-      workouts: state.workouts
+      workouts: state.workoutReducer.workouts
   }
 }
 
