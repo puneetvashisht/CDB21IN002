@@ -12,7 +12,7 @@ const { advancedFind } = require('../middleware/advancedFind')
 
 
 router.route('/')
-.get(protect, advancedFind(Workout, {path:'user', select: 'email role'}),findAllWorkouts)
+.get(advancedFind(Workout, {path:'user', select: 'email role'}),findAllWorkouts)
 .post(protect, authorize('admin', 'trainer'), createWorkout)
 
 router.route('/:title')

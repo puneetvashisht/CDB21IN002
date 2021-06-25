@@ -20,6 +20,7 @@ app.use(fileupload());
 // enable cors request
 app.use(cors());
 
+app.use(express.static('client/build'))
 
 app.use(express.static('public'))
 

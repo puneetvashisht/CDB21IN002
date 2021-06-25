@@ -21,7 +21,7 @@ const advancedFind = (model, populate) => async (req, res, next) =>{
     // model.find({email:test@test.com}).select(role,email)
 
   // Fields to exclude
-  const removeFields = ['select', 'sort'];
+  const removeFields = ['select', 'sort' , 'limit', 'page'];
 
   // Loop over removeFields and delete them from reqQuery
   removeFields.forEach(param => delete reqQuery[param]);
@@ -50,7 +50,16 @@ const advancedFind = (model, populate) => async (req, res, next) =>{
   } else {
     query = query.sort('-createdAt');
   }
-   
+
+
+  // pagination logic
+  const page = parseInt(req.query.page, 10) || 1;
+  const limit = parseInt(req.query.limit, 10) || 5;
+
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
+  const total = await model.countDocuments(JSON.parse(queryStr));
+  query = query.skip(startIndex).limit(limit);
 
   if (populate) {
     query = query.populate(populate);
@@ -59,9 +68,27 @@ const advancedFind = (model, populate) => async (req, res, next) =>{
   // Executing query
   const results = await query;
 
+   // Pagination result
+   const pagination = {};
+
+   if (endIndex < total) {
+     pagination.next = {
+       page: page + 1,
+       limit
+     };
+   }
+ 
+   if (startIndex > 0) {
+     pagination.prev = {
+       page: page - 1,
+       limit
+     };
+   }
+
     res.advancedResults = {
         success: true,
         count: results.length,
+        pagination,
         data: results
     }
     
